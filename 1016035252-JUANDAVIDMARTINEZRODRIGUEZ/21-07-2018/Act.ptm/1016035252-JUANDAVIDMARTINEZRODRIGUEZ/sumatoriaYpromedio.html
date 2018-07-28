@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sumatoria_Map</title>
+</head>
+<body>
+    <script type="text/javascript">
+    (function() {
+        var num = prompt("Ingrese un número:");
+        var Arreglo = [];
+        for (var a = 0; a<num ;a++){
+            Arreglo.push(
+                {
+                    element1:"string"+a,
+                    element2:"string"+a,
+                    element3: 1+a
+                }
+            )
+        }
+        var sum = 0;
+        var prome = 0;
+        for (var a = 0; a<num ; a++){
+            sum += Arreglo[a]["element3"];
+        }
+        prome = sum/num;
+        console.log("La sumatoria es: "+sum);
+        console.log("El promedio es: "+prome);
+    })();    
+    </script>
+</body>
+</html>

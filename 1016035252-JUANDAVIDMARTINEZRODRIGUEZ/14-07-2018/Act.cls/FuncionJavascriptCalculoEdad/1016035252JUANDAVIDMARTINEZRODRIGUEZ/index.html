@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<title>Ejercicio Edad JavaScript</title>
+	</head>
+<body>
+
+<script>
+   function calcularEdad() {
+   var fecha = document.getElementById('date'); // obtiene la fecha del campo de texto
+   console.log("la fecha ingresada es:" + fecha.value); // para ver por consola en chrome
+   var dateObj = new Date(fecha.value); // instancia un objeto fecha con el string que obtuvo del campo de texto
+
+   if(isNaN(dateObj)) { // evalua si el valor obtenido es NaN (indefinido) lo que significa que no pudo parsear la fecha ingresada
+      alert("Ingrese la fecha en el formato (yyyy-MM-dd)"); // genera una alerta hacia el usuario
+   } else { // si no
+     var diffHoyIngresadaMs = Date.now() - dateObj.getTime(); // resta la fecha actual con la ingresada en milisegundos, el objeto Date es propio de javascript y funciona desde el punto de referencia año 1970
+     console.log("millis fecha actual " + Date.now()); //muestra en consola fecha actual calculada en milisegundos
+     console.log("millis fecha ingresada " + dateObj.getTime()); // muestra en consola la fecha ingresada calculada en milsegundos
+     console.log("resta now con ingresada " + diffHoyIngresadaMs);//muestra el resultado de la resta de la fecha actual con la ingresada por el usuario
+     var fechaCalculadaDeDiferencia = new Date(diffHoyIngresadaMs); // instancia un objeto fecha con la diferencia obtenida
+     console.log("getUTCFullYear " + fechaCalculadaDeDiferencia.getUTCFullYear()); // obtiene el año calculado de la fecha
+     var edad = Math.abs(fechaCalculadaDeDiferencia.getUTCFullYear() - 1970) // resta el año calculado con 1970
+     document.getElementById('result').innerHTML = "<h2>Su edad es " + edad + " años</h2>"; // inyecta el html al objeto con id=result, innerHTML inyecta el html definido dentro del objeto con el id referenciado
+   }
+ }
+</script>
+
+<h1>Ingrese su fecha de nacimiento (yyyy-MM-dd)</h1>
+<p>  <input type="text" id="date"><br></p>
+<p><span id="result"></span></p>
+<button onclick="calcularEdad()">Calcular Edad</button>
+</body>
+</html>

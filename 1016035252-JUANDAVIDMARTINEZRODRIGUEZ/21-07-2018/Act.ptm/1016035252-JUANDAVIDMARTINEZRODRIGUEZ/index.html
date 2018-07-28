@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Promedio de notas</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+
+<script>
+  function cargar(nota)
+  {
+    var f;
+    for(f=0;f<nota.length;f++)
+    {
+      var v;
+      v=prompt('Ingrese sus notas:','');
+      nota[f]=parseFloat(v); 
+    }
+  }
+
+  function calcularNotas(nota)
+  {
+    var total=0;
+    var f;
+    for(f=0;f<nota.length;f++)
+    {
+      total=(total+nota[f]);
+    }
+    document.write('Listado de notas<br>');
+    for(f=0;f<nota.length;f++)
+    {
+      document.write(nota[f]+'<br>');
+    } 
+    document.write('El promedio de sus 7 notas es: '+total/7); 
+  }
+
+  var nota;
+  nota=new Array(7);
+  cargar(nota);
+  calcularNotas(nota);
+</script>
+
+</body>
+</html>
